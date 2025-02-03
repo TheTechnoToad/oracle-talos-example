@@ -167,7 +167,7 @@ resource "helm_release" "cilium" {
   name         = "cilium"
   namespace    = "kube-system"
   repository   = "https://helm.cilium.io"
-  version      = "1.16.2"
+  version      = "1.16.6"
 
   set {
     name  = "bandwidthManager.bbr"
@@ -196,6 +196,21 @@ resource "helm_release" "cilium" {
 
   set {
     name  = "enableRuntimeDeviceDetection"
+    value = true
+  }
+
+  set {
+    name  = "gatewayAPI.enabled"
+    value = true
+  }
+
+  set {
+    name  = "gatewayAPI.enableAlpn"
+    value = true
+  }
+
+  set {
+    name  = "gatewayAPI.enableAppProtocol"
     value = true
   }
 
