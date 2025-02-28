@@ -21,7 +21,7 @@ variable "controlplane_node_ips" {
 }
 
 variable "kubernetes_version" {
-  default     = "1.32.1"
+  default     = "1.32.2"
   description = "The version of Kubernetes to use for the cluster."
   type        = string
 
@@ -34,7 +34,7 @@ variable "kubernetes_version" {
 variable "talos_version" {
   description = "The version of Talos to use for the cluster."
   type        = string
-  default     = "v1.9.3"
+  default     = "v1.9.4"
 
   validation {
     condition     = can(regex("^v[0-9]+\\.[0-9]+\\.[0-9]+$", var.talos_version))
