@@ -167,12 +167,7 @@ resource "helm_release" "cilium" {
   name         = "cilium"
   namespace    = "kube-system"
   repository   = "https://helm.cilium.io"
-  version      = "1.16.6"
-
-  set {
-    name  = "bandwidthManager.bbr"
-    value = true
-  }
+  version      = "1.16.4"
 
   set {
     name  = "bandwidthManager.enabled"
@@ -180,7 +175,22 @@ resource "helm_release" "cilium" {
   }
 
   set {
+    name  = "bpf.datapathMode"
+    value = "netkit"
+  }
+
+  set {
     name  = "bpf.masquerade"
+    value = true
+  }
+
+  set {
+    name  = "bpf.preallocateMaps"
+    value = true
+  }
+
+  set {
+    name  = "bpf.tproxy"
     value = true
   }
 
@@ -195,37 +205,7 @@ resource "helm_release" "cilium" {
   }
 
   set {
-    name  = "enableRuntimeDeviceDetection"
-    value = true
-  }
-
-  set {
-    name  = "gatewayAPI.enabled"
-    value = true
-  }
-
-  set {
-    name  = "gatewayAPI.enableAlpn"
-    value = true
-  }
-
-  set {
-    name  = "gatewayAPI.enableAppProtocol"
-    value = true
-  }
-
-  set {
-    name  = "hubble.enabled"
-    value = false
-  }
-
-  set {
-    name  = "hubble.relay.enabled"
-    value = false
-  }
-
-  set {
-    name  = "hubble.ui.enabled"
+    name  = "envoy.enabled"
     value = false
   }
 
@@ -251,6 +231,21 @@ resource "helm_release" "cilium" {
 
   set {
     name  = "kubeProxyReplacement"
+    value = true
+  }
+
+  set {
+    name  = "l2announcements.enabled"
+    value = true
+  }
+
+  set {
+    name  = "l7Proxy"
+    value = false
+  }
+
+  set {
+    name = "rollOutCiliumPods"
     value = true
   }
 
