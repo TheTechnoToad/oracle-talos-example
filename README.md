@@ -10,7 +10,7 @@
 - [Kubectl](https://kubernetes.io/docs/tasks/tools)
 - [Kubeseal](https://github.com/bitnami-labs/sealed-secrets)
 - [Python](https://www.python.org/downloads)
-- [Talos ARM64 Image](https://factory.talos.dev/?arch=arm64&cmdline-set=true&extensions=-&extensions=siderolabs%2Fiscsi-tools&platform=oracle&target=cloud&version=1.7.6)
+- [Talos ARM64 Image](https://factory.talos.dev/?arch=arm64&cmdline-set=true&extensions=-&extensions=siderolabs%2Fcrun&extensions=siderolabs%2Ffuse3&extensions=siderolabs%2Fiscsi-tools&extensions=siderolabs%2Ftailscale&platform=oracle&target=cloud&version=1.9.4)
 - [Talos CLI](https://www.talos.dev/latest/talos-guides/install/talosctl)
 - [Terraform CLI](https://developer.hashicorp.com/terraform/install)
 
