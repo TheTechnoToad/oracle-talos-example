@@ -153,7 +153,7 @@ resource "github_repository_deploy_key" "this" {
 }
 
 provider "helm" {
-  kubernetes {
+  kubernetes = {
     client_certificate     = base64decode(module.talos.kubeconfig.client_certificate)
     client_key             = base64decode(module.talos.kubeconfig.client_key)
     cluster_ca_certificate = base64decode(module.talos.kubeconfig.ca_certificate)
@@ -169,95 +169,84 @@ resource "helm_release" "cilium" {
   repository   = "https://helm.cilium.io"
   version      = "1.16.4"
 
-  set {
-    name  = "bandwidthManager.enabled"
-    value = true
-  }
-
-  set {
-    name  = "bpf.datapathMode"
-    value = "netkit"
-  }
-
-  set {
-    name  = "bpf.masquerade"
-    value = true
-  }
-
-  set {
-    name  = "bpf.preallocateMaps"
-    value = true
-  }
-
-  set {
-    name  = "bpf.tproxy"
-    value = true
-  }
-
-  set {
-    name  = "cgroup.autoMount.enabled"
-    value = false
-  }
-
-  set {
-    name  = "cgroup.hostRoot"
-    value = "/sys/fs/cgroup"
-  }
-
-  set {
-    name  = "envoy.enabled"
-    value = false
-  }
-
-  set {
-    name  = "ipam.mode"
-    value = "kubernetes"
-  }
-
-  set {
-    name  = "k8sNetworkPolicy.enabled"
-    value = false
-  }
-
-  set {
-    name  = "k8sServiceHost"
-    value = "localhost"
-  }
-
-  set {
-    name  = "k8sServicePort"
-    value = "7445"
-  }
-
-  set {
-    name  = "kubeProxyReplacement"
-    value = true
-  }
-
-  set {
-    name  = "l2announcements.enabled"
-    value = true
-  }
-
-  set {
-    name  = "l7Proxy"
-    value = false
-  }
-
-  set {
-    name = "rollOutCiliumPods"
-    value = true
-  }
-
-  set {
-    name  = "securityContext.capabilities.ciliumAgent"
-    value = "{CHOWN,KILL,NET_ADMIN,NET_RAW,IPC_LOCK,SYS_ADMIN,SYS_RESOURCE,DAC_OVERRIDE,FOWNER,SETGID,SETUID}"
-  }
-
-  set {
-    name  = "securityContext.capabilities.cleanCiliumState"
-    value = "{NET_ADMIN,SYS_ADMIN,SYS_RESOURCE}"
-  }
+  set = [
+    {
+      name  = "bandwidthManager.enabled"
+      value = true
+    },
+    {
+      name  = "bpf.datapathMode"
+      value = "netkit"
+    },
+    {
+      name  = "bpf.masquerade"
+      value = true
+    },
+    {
+      name  = "bpf.preallocateMaps"
+      value = true
+    },
+    {
+      name  = "bpf.tproxy"
+      value = true
+    },
+    {
+      name  = "cgroup.autoMount.enabled"
+      value = false
+    },
+    {
+      name  = "cgroup.hostRoot"
+      value = "/sys/fs/cgroup"
+    },
+    {
+      name  = "envoy.enabled"
+      value = false
+    },
+    {
+      name  = "ipam.mode"
+      value = "kubernetes"
+    },
+    {
+      name  = "k8sNetworkPolicy.enabled"
+      value = false
+    },
+    {
+      name  = "k8sServiceHost"
+      value = "localhost"
+    },
+    {
+      name  = "k8sServicePort"
+      value = "7445"
+    },
+    {
+      name  = "kubeProxyReplacement"
+      value = true
+    },
+    {
+      name  = "l2announcements.enabled"
+      value = true
+    },
+    {
+      name  = "l7Proxy"
+      value = false
+    },
+    {
+      name  = "operator.prometheus.enabled"
+      value = false
+    },
+    {
+      name  = "rollOutCiliumPods"
+      value = true
+    },
+    {
+      name  = "securityContext.capabilities.ciliumAgent"
+      value = "{CHOWN,KILL,NET_ADMIN,NET_RAW,IPC_LOCK,SYS_ADMIN,SYS_RESOURCE,DAC_OVERRIDE,FOWNER,SETGID,SETUID}"
+    },
+    {
+      name  = "securityContext.capabilities.cleanCiliumState"
+      value = "{NET_ADMIN,SYS_ADMIN,SYS_RESOURCE}"
+    },
+  ]
 }
 
 provider "flux" {
