@@ -167,7 +167,7 @@ resource "helm_release" "cilium" {
   name         = "cilium"
   namespace    = "kube-system"
   repository   = "https://helm.cilium.io"
-  version      = "1.16.4"
+  version      = "1.18.1"
 
   set = [
     {
@@ -179,15 +179,19 @@ resource "helm_release" "cilium" {
       value = "netkit"
     },
     {
+      name  = "bpf.hostLegacyRouting"
+      value = true
+    },
+    {
       name  = "bpf.masquerade"
       value = true
     },
     {
-      name  = "bpf.preallocateMaps"
+      name  = "bpf.tproxy"
       value = true
     },
     {
-      name  = "bpf.tproxy"
+      name  = "bpfClockProbe"
       value = true
     },
     {
@@ -207,6 +211,10 @@ resource "helm_release" "cilium" {
       value = "kubernetes"
     },
     {
+      name  = "ipv4NativeRoutingCIDR"
+      value = "10.244.0.0/16"
+    },
+    {
       name  = "k8sNetworkPolicy.enabled"
       value = false
     },
@@ -223,20 +231,20 @@ resource "helm_release" "cilium" {
       value = true
     },
     {
-      name  = "l2announcements.enabled"
-      value = true
-    },
-    {
       name  = "l7Proxy"
       value = false
     },
     {
       name  = "operator.prometheus.enabled"
-      value = false
+      value = true
     },
     {
       name  = "rollOutCiliumPods"
       value = true
+    },
+    {
+      name  = "routingMode"
+      value = "native"
     },
     {
       name  = "securityContext.capabilities.ciliumAgent"
