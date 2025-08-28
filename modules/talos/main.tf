@@ -37,7 +37,7 @@ locals {
         ]
 
         kubespan = {
-          advertiseKubernetesNetworks = true
+          advertiseKubernetesNetworks = false
           allowDownPeerBypass         = true
           enabled                     = true
         }
@@ -72,7 +72,7 @@ data "talos_image_factory_extensions_versions" "this" {
       "crun",
       "fuse3",
       "iscsi-tools",
-      "tailscale",
+      "nfsd",
     ]
   }
 }
