@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- [7-Zip](https://www.7-zip.org/download.html) for Windows
+- [7-Zip](https://www.7-zip.org/download.html)
 - Access to a Terminal/Command Line: You need access to a command-line interface (CLI) on your local machine to execute various commands.
 - Basic Understanding of Cloud and Infrastructure as Code: Familiarity with cloud computing concepts and Terraform is essential to follow along with the tutorial.
 - [Github Desktop](https://github.com/apps/desktop)
@@ -10,7 +10,7 @@
 - [Kubectl](https://kubernetes.io/docs/tasks/tools)
 - [Kubeseal](https://github.com/bitnami-labs/sealed-secrets)
 - [Python](https://www.python.org/downloads)
-- [Talos ARM64 Image](https://factory.talos.dev/?arch=arm64&cmdline-set=true&extensions=-&extensions=siderolabs%2Fcrun&extensions=siderolabs%2Ffuse3&extensions=siderolabs%2Fiscsi-tools&extensions=siderolabs%2Fnfsd&platform=oracle&target=cloud&version=1.10.7)
+- [Talos ARM64 Image](https://factory.talos.dev/?arch=arm64&cmdline-set=true&extensions=-&extensions=siderolabs%2Fcrun&extensions=siderolabs%2Ffuse3&extensions=siderolabs%2Fiscsi-tools&extensions=siderolabs%2Fnfsd&platform=oracle&target=cloud&version=1.11.1)
 - [Talos CLI](https://www.talos.dev/latest/talos-guides/install/talosctl)
 - [Terraform CLI](https://developer.hashicorp.com/terraform/install)
 
@@ -24,7 +24,7 @@
 2. Use this repository as a template repository to make your own
 3. Clone the repository
 4. Create a bucket on Oracle and note the name
-5. [Follow this tutorial under "Upload image" to generate Oracle image you can skip the factory step and use the one](https://www.talos.dev/v1.10/talos-guides/install/cloud-platforms/oracle/#upload-image) [here](https://factory.talos.dev/?arch=arm64&cmdline-set=true&extensions=-&extensions=siderolabs%2Fcrun&extensions=siderolabs%2Ffuse3&extensions=siderolabs%2Fiscsi-tools&extensions=siderolabs%2Fnfsd&platform=oracle&target=cloud&version=1.11.1)
+5. [Follow this tutorial under "Upload image" to generate Oracle image](https://www.talos.dev/v1.11/talos-guides/install/cloud-platforms/oracle/#upload-image): you can use this as the image -> [here](https://factory.talos.dev/?arch=arm64&cmdline-set=true&extensions=-&extensions=siderolabs%2Fcrun&extensions=siderolabs%2Ffuse3&extensions=siderolabs%2Fiscsi-tools&extensions=siderolabs%2Fnfsd&platform=oracle&target=cloud&version=1.11.1)
 6. Upload the created image (oracle-arm64.oci) to the bucket
 7. [Create an Oracle api key](https://cloud.oracle.com/identity/domains/my-profile/api-keys)
 8. Click "Add API Key"
