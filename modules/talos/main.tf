@@ -114,7 +114,7 @@ data "talos_machine_configuration" "controlplane" {
   kubernetes_version = var.kubernetes_version
   machine_secrets    = talos_machine_secrets.this.machine_secrets
   machine_type       = "controlplane"
-  talos_version = var.talos_version
+  talos_version      = var.talos_version
 }
 
 resource "talos_machine_bootstrap" "controlplane" {
@@ -132,7 +132,7 @@ data "talos_machine_configuration" "worker" {
   kubernetes_version = var.kubernetes_version
   machine_secrets    = talos_machine_secrets.this.machine_secrets
   machine_type       = "worker"
-  talos_version = var.talos_version
+  talos_version      = var.talos_version
 }
 
 data "talos_cluster_kubeconfig" "this" {
