@@ -167,7 +167,7 @@ resource "helm_release" "cilium" {
   name         = "cilium"
   namespace    = "kube-system"
   repository   = "https://helm.cilium.io"
-  version      = "1.18.6"
+  version      = "1.18.7"
 
   set = [
     {
