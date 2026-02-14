@@ -188,7 +188,7 @@ resource "helm_release" "cilium" {
     },
     {
       name  = "bpf.tproxy"
-      value = true
+      value = false
     },
     {
       name  = "bpfClockProbe"
