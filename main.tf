@@ -207,6 +207,14 @@ resource "helm_release" "cilium" {
       value = false
     },
     {
+      name  = "hubble.relay.enabled"
+      value = true
+    },
+    {
+      name  = "hubble.ui.enabled"
+      value = true
+    },
+    {
       name  = "ipam.mode"
       value = "kubernetes"
     },
