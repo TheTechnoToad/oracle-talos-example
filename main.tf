@@ -167,7 +167,7 @@ resource "helm_release" "cilium" {
   name         = "cilium"
   namespace    = "kube-system"
   repository   = "https://helm.cilium.io"
-  version      = "1.18.1"
+  version      = "1.18.7"
 
   set = [
     {
@@ -188,7 +188,7 @@ resource "helm_release" "cilium" {
     },
     {
       name  = "bpf.tproxy"
-      value = true
+      value = false
     },
     {
       name  = "bpfClockProbe"
@@ -205,6 +205,14 @@ resource "helm_release" "cilium" {
     {
       name  = "envoy.enabled"
       value = false
+    },
+    {
+      name  = "hubble.relay.enabled"
+      value = true
+    },
+    {
+      name  = "hubble.ui.enabled"
+      value = true
     },
     {
       name  = "ipam.mode"
@@ -281,7 +289,7 @@ resource "flux_bootstrap_git" "talos_cluster" {
 
   provisioner "local-exec" {
     command = <<EOT
-      curl -sL https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.27.1/kubeseal-0.27.1-linux-amd64.tar.gz | tar -xz
+      curl -sL https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.34.0/kubeseal-0.34.0-linux-amd64.tar.gz | tar -xz
     EOT
   }
 }
