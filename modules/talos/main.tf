@@ -69,10 +69,7 @@ data "talos_image_factory_extensions_versions" "this" {
   talos_version = var.talos_version
   filters = {
     names = [
-      "crun",
-      "fuse3",
-      "iscsi-tools",
-      "nfsd",
+      "crun"
     ]
   }
 }
