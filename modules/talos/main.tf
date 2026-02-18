@@ -132,7 +132,7 @@ data "talos_machine_configuration" "worker" {
   talos_version      = var.talos_version
 }
 
-data "talos_cluster_kubeconfig" "this" {
+resource "talos_cluster_kubeconfig" "this" {
   depends_on = [talos_machine_bootstrap.controlplane]
 
   client_configuration = talos_machine_secrets.this.client_configuration
